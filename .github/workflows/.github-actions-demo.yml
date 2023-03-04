@@ -1,0 +1,20 @@
+name: Github Actions Demo
+run-name: ${{github.actor}} is testing out Github Acitons
+on: [push]
+jobs: 
+  깃헙-액션-써보기:
+    runs-on: ubuntu-latest
+    steps:
+     - run: echo "이 job은 ${{ github.event_name }} 이벤트로 트리거됐다네"
+     - run: echo "이 job은 지금 Github에서 호스팅하는 ${{ runner.os}} 위에서 돌고 있소"
+     - run: echo "브랜치 이름은 ${{ github.ref }}이고 ${{ github.repository }} 레포라네"
+     - name: 레포 코드로 접근한다네
+       uses: actions/checkout@v3
+     - run: echo "${{ github.repository }} 레포가 이 runner에 클론되었소"
+     - run: echo "${{ github.repository }} 레포가 이 runner에 클론되었소"
+     - name: 레포에 파일들을 나열해보세
+       run: |
+         ls ${{ github.workspace }}
+     - run: echo "작업 status는 ${{ job.status }}라네"
+       
+       
