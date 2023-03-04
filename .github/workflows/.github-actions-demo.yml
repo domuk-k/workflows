@@ -21,9 +21,10 @@ jobs:
           if [[ $(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             "https://api.github.com/repos/${{ github.repository }}/pulls?state=open&labels=hot-fix" \
             | jq length) -gt 0 ]]; then
-            echo $(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            echo "secrets GITHUB_TOKEN  ${{ secrets.GITHUB_TOKEN  }} "
+            curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             "https://api.github.com/repos/${{ github.repository }}/pulls?state=open&labels=hot-fix" \
-            echo $(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             "https://api.github.com/repos/${{ github.repository }}/pulls?state=open&labels=hot-fix" \
             | jq length) -gt 0
             echo "Aborting workflow because there are open PRs with 'hot-fix' label"
