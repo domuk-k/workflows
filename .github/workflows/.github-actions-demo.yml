@@ -23,7 +23,7 @@ jobs:
             | jq length) -gt 0 ]]; then
             echo "secrets GITHUB_TOKEN  ${{ secrets.GITHUB_TOKEN  }} "
             curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls?state=open&labels=hot-fix" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls?state=open&labels=hot-fix"
             curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             "https://api.github.com/repos/${{ github.repository }}/pulls?state=open&labels=hot-fix" \
             | jq length
