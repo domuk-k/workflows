@@ -1,5 +1,5 @@
 name: Github Actions Demo
-run-name: ${{github.actor}} is testing out Github Acitons
+run-name: ${{github.actor}} is testing out Github Actions
 on: [push]
 jobs:
   trying-github-action:
@@ -15,4 +15,13 @@ jobs:
       - name: 레포에 파일들을 나열해보세
         run: |
           ls ${{ github.workspace }}
+      - run: echo "작업 status는 ${{ job.status }}라네"
+      - name: Check for "hot-fix" PRs
+        run: |
+          if [[ $(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls?state=open&labels=hot-fix" \
+            | jq length) -gt 0 ]]; then
+            echo "Aborting workflow because there are open PRs with 'hot-fix' label"
+            exit 1
+          fi
       - run: echo "작업 status는 ${{ job.status }}라네"
