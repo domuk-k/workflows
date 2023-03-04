@@ -4,10 +4,12 @@ on: [push, pull_request]
 jobs:
   trying-github-action:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - run: echo "이 job은 ${{ github.event_name }} 이벤트로 트리거됐다네"
       - run: echo "이 job은 지금 Github에서 호스팅하는 ${{ runner.os}} 위에서 돌고 있소"
-      - run: echo "브랜치 이름은 ${{ github.ref }}이고 ${{ github.repositghory }} 레포라네"
+      - run: echo "브랜치 이름은 ${{ github.ref }}이고 ${{ github.repository }} 레포라네"
       - name: 레포 코드로 접근한다네
         uses: actions/checkout@v3
       - run: echo "${{ github.repository }} 레포가 이 runner에 클론되었소"
