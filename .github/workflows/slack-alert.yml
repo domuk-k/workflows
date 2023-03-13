@@ -1,50 +1,33 @@
-on: [push]
-
+name: Slack Alert on Hot-Fix Labeled PR Opened
+on:
+  pull_request:
+    types:
+      - labeled
 jobs:
-  new_push_job:
+  triage:
     runs-on: ubuntu-latest
-    name: New push to repo
     steps:
-      - name: Send GitHub trigger payload to Slack Workflow Builder
-        id: slack
+      - name: Slack Notification
         uses: slackapi/slack-github-action@v1.23.0
+        if: |
+          contains(github.event.pull_request.labels.*.name,'type: bug (hotfix)')
         with:
           payload: |
             {
-              "text": "Danny Torrence left a 1 star review for your property.",
-              "blocks": [
+              "text": "🚨 프론트엔드 Hot-fix PR 알림",
+              "blocks" : [
+                {
+                  "type": "divider"
+                },
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Danny Torrence left the following review for your property:"
+                    "text": "<https://github.com/modusign/modusign-client/pulls?q=is%3Apr+is%3Aopen+label%3A%22type%3A+bug+%28hotfix%29%22|PR 바로가기> cc <@U047SC8TSSE>"
                   }
                 },
-                {
-                  "type": "section",
-                  "block_id": "section567",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "<https://example.com|Overlook Hotel> \\n :star: \\n Doors had too many axe holes, guest in room 237 was far too rowdy, whole place felt stuck in the 1920s."
-                  },
-                  "accessory": {
-                    "type": "image",
-                    "image_url": "https://is5-ssl.mzstatic.com/image/thumb/Purple3/v4/d3/72/5c/d3725c8f-c642-5d69-1904-aa36e4297885/source/256x256bb.jpg",
-                    "alt_text": "Haunted hotel image"
-                  }
-                },
-                {
-                  "type": "section",
-                  "block_id": "section789",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Average Rating*\\n1.0"
-                    }
-                  ]
-                }
               ]
             }
         env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
