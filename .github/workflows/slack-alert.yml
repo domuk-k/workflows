@@ -20,7 +20,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "<https://github.com/modusign/modusign-client/pulls?q=is%3Apr+is%3Aopen+label%3A%22type%3A+bug+%28hotfix%29%22|PR 바로가기> cc <@U047SC8TSSE>"
+                    "text": "??"
                   }
                 },
               ]
