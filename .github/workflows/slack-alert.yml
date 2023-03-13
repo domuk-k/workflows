@@ -1,0 +1,30 @@
+name: Slack Alert on Hot-Fix Labeled PR Opened
+on:
+  pull_request:
+    types:
+      - labeled
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Notification
+        uses: slackapi/slack-github-action@v1.23.0
+        if: |
+          contains(github.event.pull_request.labels.*.name,'type: bug (hotfix)')
+        with:
+          payload: |
+            {
+             "text": "🚨 프론트엔드 Hot-fix PR 알림",
+             "blocks": [
+               {
+                 "type": "section",
+                 "text": {
+                   "type": "mrkdwn",
+                   "text": "Danny Torrence left the following review for your property:"
+                 }
+               },
+             ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
