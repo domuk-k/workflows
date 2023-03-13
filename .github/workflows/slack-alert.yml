@@ -17,9 +17,6 @@ jobs:
               "text": "🚨 프론트엔드 Hot-fix PR 알림",
               "blocks" : [
                 {
-                  "type": "divider"
-                },
-                {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
