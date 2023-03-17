@@ -9,16 +9,16 @@ jobs:
         with:
           payload: |
             {
-             "text": "프론트엔드 Hot-fix PR 알림",
-             "blocks": [
-               {
-                 "type": "section",
-                 "text": {
-                   "type": "mrkdwn",
-                   "text": "Danny left the following review for your property"
-                 }
-               },
-             ]
+              "text": "프론트엔드 Hot-fix PR 알림",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Danny left the following review for your property"
+                  }
+                },
+              ]
             }
         env:
           SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
