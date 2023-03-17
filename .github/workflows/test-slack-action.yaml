@@ -22,8 +22,7 @@ jobs:
                     "type": "mrkdwn",
                     "text": "야 hotfix 올라왓다 다들 긴장하고 빠른 배포가자 @frontend"
                   }
-                },
-
+                }
               ]
             }
         env:
