@@ -19,7 +19,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*핫픽스 PR입니다.* ${{ join(github.event.pull_request.title) }} : <${{ github.event.pull_request.html_url }} | 리뷰하기> @U01TT9YKZ4K"
+                    "text": "*핫픽스 PR입니다.* ${{ join(github.event.pull_request.title) }} : <${{ github.event.pull_request.html_url }} | 리뷰하기> <@U01TT9YKZ4K>"
                   }
                 }
               ]
