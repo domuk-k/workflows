@@ -1,13 +1,17 @@
 name: 'test-slack-action'
-on: workflow_dispatch
-
+on:
+  pull_request:
+    types:
+      - labeled
+      - opened
 jobs:
   'slack-message':
     runs-on: ubuntu-latest
     steps:
-      - name: Send custom JSON data to Slack workflow
-        id: slack
+      - name: Send Alert when hot fix PR came up
         uses: slackapi/slack-github-action@v1.23.0
+        if: |
+          contains(github.event.pull_request.labels.*.name,'type: bug (hotfix)')
         with:
           # For posting a rich message using Block Kit
           payload: |
