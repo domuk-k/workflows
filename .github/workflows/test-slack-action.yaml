@@ -10,8 +10,8 @@ jobs:
     steps:
       - name: Send Alert when hot fix PR came up
         uses: slackapi/slack-github-action@v1.23.0
-        if: |
-          contains(github.event.pull_request.labels.*.name,'type: bug (hotfix)')
+        # if: |
+        #   contains(github.event.pull_request.labels.*.name,'type: bug (hotfix)')
         with:
           # For posting a rich message using Block Kit
           payload: |
