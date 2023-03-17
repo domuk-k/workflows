@@ -25,7 +25,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ contains(github.event.pull_request.labels.*.name,'type: bug (hotfix)') }}"
+                    "text": "${{ contains(github.event.pull_request.name, "type: bug (hotfix)") }}"
                   }
                 }
               ]
