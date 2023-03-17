@@ -5,12 +5,24 @@ jobs:
   'slack-message':
     runs-on: ubuntu-latest
     steps:
-      - uses: slackapi/slack-github-action@v1.23.0
+      - name: Send custom JSON data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
         with:
+          # For posting a rich message using Block Kit
           payload: |
             {
-              "key": "value",
-              "foo": "bar"
+              "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                  }
+                }
+              ]
             }
         env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
