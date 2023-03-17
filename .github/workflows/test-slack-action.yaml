@@ -1,3 +1,4 @@
+name: 'test-slack-action'
 on:
   workflow_dispatch:
 
