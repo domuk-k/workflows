@@ -1,6 +1,6 @@
 name: 'test-slack-action'
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, labeled]
 jobs:
   'slack-message':
