@@ -8,29 +8,22 @@ jobs:
     steps:
       - name: Send Alert when hot fix PR came up
         uses: slackapi/slack-github-action@v1.23.0
-        # if: |
-        #   contains(github.event.pull_request.labels.*.name, 'bug')
-        #   contains(github.event.pull_request.labels.*.name, 'type: bug (hotfix)')
+        if: |
+          contains(github.event.pull_request.labels.*.name, 'type: bug (hotfix)')
         with:
           # For posting a rich message using Block Kit
           payload: |
             {
-              "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+              "text": "상황발생상황발생",
               "blocks": [
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                    "text": "야 hotfix 올라왓다 다들 긴장하고 빠른 배포가자 @frontend"
                   }
                 },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "LABELS ${{  contains(github.event.pull_request.labels.*.name, 'type: bug (hotfix)') }}"
-                  }
-                }
+
               ]
             }
         env:
