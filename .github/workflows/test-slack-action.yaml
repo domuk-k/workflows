@@ -27,7 +27,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "LABELS ${{ contains(github.event.pull_request.pull_request.labels.*.name, 'bug') }}"
+                    "text": "LABELS ${{ join(github.event.pull_request.pull_request.labels.*.name) }}"
                   }
                 }
               ]
