@@ -14,7 +14,6 @@ jobs:
           # For posting a rich message using Block Kit
           payload: |
             {
-              "text": "상황발생상황발생",
               "blocks": [
                 {
                   "type": "section",
@@ -27,7 +26,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Link ${{ github.event.pull_request.html_url }} Assignees ${{ join(github.event.pull_request.assignees,' ') }}"
+                    "text": "Link ${{ github.event.pull_request.html_url }} Assignees ${{ join(github.event.pull_request.assignees) }}"
                   }
                 }
               ]
