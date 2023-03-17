@@ -19,14 +19,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "야 hotfix 올라왓다 다들 긴장하고 빠른 배포가자 @frontend"
-                  }
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "Link ${{ github.event.pull_request.html_url }} Assignees ${{ join(github.event.pull_request.assignees) }}"
+                    "text": "*핫픽스 PR입니다.* ${{ join(github.event.pull_request.title) }} : <${{ github.event.pull_request.html_url }} | 리뷰하기> @U01TT9YKZ4K"
                   }
                 }
               ]
