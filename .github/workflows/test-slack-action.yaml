@@ -1,5 +1,7 @@
 name: 'test-slack-action'
-on: workflow_dispatch
+on:
+  pull_request:
+    types: [opened, labeled]
 jobs:
   'slack-message':
     runs-on: ubuntu-latest
@@ -25,7 +27,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ toJSON(github.event.pull_request) }}"
+                    "text": "${{ toJSON(github.event.pull_request.labels.name) }}"
                   }
                 }
               ]
