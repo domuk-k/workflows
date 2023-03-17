@@ -25,7 +25,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ toJSON(github.event.pull_request.name) }}"
+                    "text": "${{ toJSON(github.event.pull_request) }}"
                   }
                 }
               ]
