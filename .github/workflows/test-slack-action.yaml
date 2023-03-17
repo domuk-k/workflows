@@ -27,7 +27,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "LABELS" ${{ github.event.pull_request.pull_request.labels.*.url }} ${{ github.event.pull_request.number }} ${{ github.event.pull_request.action }}  ${{ github.event.pull_request.sender }}"
+                    "text": "LABELS ${{ github.event.pull_request.pull_request.labels.*.url }} ${{ github.event.pull_request.number }} ${{ github.event.pull_request.action }}  ${{ github.event.pull_request.sender }}"
                   }
                 }
               ]
