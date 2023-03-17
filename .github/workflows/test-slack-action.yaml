@@ -1,9 +1,5 @@
 name: 'test-slack-action'
-on:
-  pull_request:
-    types:
-      - labeled
-      - opened
+on: workflow_dispatch
 jobs:
   'slack-message':
     runs-on: ubuntu-latest
