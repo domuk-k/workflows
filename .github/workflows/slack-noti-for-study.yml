@@ -1,0 +1,21 @@
+name: Schedule Job for slack noti
+
+on:
+  schedule:
+    # - cron: '30 17 * * 5'
+    # - cron: '40 11 * * 1'
+    - cron: '* * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+      - name: Install dependencies
+        run: yarn install
+      - name: Run scheduled job
+        run: |
+          npx ts-node slack-noti-for-study
