@@ -1,0 +1,20 @@
+{
+  "name": "workflows",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/domuk-k/workflows.git",
+  "author": "domuk-k <dannyworks102@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^29.5.0",
+    "moment": "^2.29.4",
+    "typescript": "^5.0.2",
+    "@notionhq/client": "^2.2.3",
+    "@slack/webhook": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/moment": "^2.13.0",
+    "ts-jest": "^29.0.5"
+  }
+}
