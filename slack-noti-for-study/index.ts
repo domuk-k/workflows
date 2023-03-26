@@ -16,7 +16,7 @@ async function main() {
           type: 'section',
           text: {
             type: 'plain_text',
-            text: `이번주 모임에 ${count}건이 등록되었습니다. 3페이지만 읽어도 발췌할 내용이 많습니다. 화이팅입니다`,
+            text: `이번주 모임에 ${count}건이 등록되었습니다. 한 토픽만 읽어도 기여할 수 있어요!`,
           },
         },
         {
