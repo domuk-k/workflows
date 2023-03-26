@@ -1,10 +1,10 @@
 import getWeekQuoteLogCount from './getLatestWeekQuoteLogCount';
 import { IncomingWebhook } from '@slack/webhook';
 
-if (!process.env.SLACK_HEUG_TEST)
-  throw new Error('SLACK_HEUG_TEST is not defined');
+if (!process.env.SLACK_FE_BOOKS)
+  throw new Error('SLACK_FE_BOOKS is not defined');
 
-const webhook = new IncomingWebhook(process.env.SLACK_HEUG_TEST);
+const webhook = new IncomingWebhook(process.env.SLACK_FE_BOOKS);
 
 async function main() {
   const count = await getWeekQuoteLogCount();

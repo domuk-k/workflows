@@ -20,6 +20,6 @@ jobs:
         run: |
           npx ts-node slack-noti-for-study
         env:
-          SLACK_HEUG_TEST: ${{ secrets.SLACK_HEUG_TEST }}
+          SLACK_FE_BOOKS: ${{ secrets.SLACK_FE_BOOKS }}
           BOOK_RECORD_DB_ID: ${{ secrets.BOOK_RECORD_DB_ID }}
           NOTION_BOOKS_RECORD: ${{ secrets.NOTION_BOOKS_RECORD }}
