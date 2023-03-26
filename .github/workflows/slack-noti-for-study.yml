@@ -2,9 +2,8 @@ name: Schedule Job for slack noti
 
 on:
   schedule:
-    # - cron: '30 02 * * 6' # In UTC: 5:30 PM every Friday
-    # - cron: '40 20 * * 1' # In UTC: 11:40 AM every Monday
-    - cron: '*/10 * * * *'
+    - cron: '30 02 * * 6' # In UTC: 5:30 PM every Friday
+    - cron: '40 20 * * 1' # In UTC: 11:40 AM every Monday
 
 jobs:
   notify:
