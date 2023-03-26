@@ -4,7 +4,7 @@ on:
   schedule:
     # - cron: '30 02 * * 6' # In UTC: 5:30 PM every Friday
     # - cron: '40 20 * * 1' # In UTC: 11:40 AM every Monday
-    - cron: '*/30 * * * *'
+    - cron: '*/10 * * * *'
 
 jobs:
   notify:
@@ -21,5 +21,5 @@ jobs:
           npx ts-node slack-noti-for-study
         env:
           SLACK_HEUG_TEST: ${{ secrets.SLACK_HEUG_TEST }}
-          QUOTE_LOG_DB_ID: ${{ secrets.QUOTE_LOG_DB_ID }}
+          BOOK_RECORD_DB_ID: ${{ secrets.BOOK_RECORD_DB_ID }}
           NOTION_BOOKS_RECORD: ${{ secrets.NOTION_BOOKS_RECORD }}
