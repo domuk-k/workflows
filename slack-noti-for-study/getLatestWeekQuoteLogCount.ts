@@ -7,11 +7,11 @@ const notionClient = new Client({
 });
 
 async function getLatestWeekQuoteLogCount() {
-  if (!process.env.QUOTE_LOG_DB_ID)
-    throw new Error('QUOTE_LOG_DB_ID is not defined');
+  if (!process.env.BOOK_RECORD_DB_ID)
+    throw new Error('BOOK_RECORD_DB_ID is not defined');
 
   const logDB = await notionClient.databases.query({
-    database_id: process.env.QUOTE_LOG_DB_ID,
+    database_id: process.env.BOOK_RECORD_DB_ID,
   });
 
   return logDB.results.filter((res) =>
