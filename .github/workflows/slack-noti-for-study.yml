@@ -1,6 +1,7 @@
 name: Schedule Job for slack noti
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '30 08 * * 5' # In KST: 5:30 PM every Friday
     - cron: '40 02 * * 1' # In KST: 11:40 AM every Monday
