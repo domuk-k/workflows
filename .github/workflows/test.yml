@@ -2,9 +2,6 @@ name: wow
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - fix/trigger-another-branch
 
 jobs:
   test:
