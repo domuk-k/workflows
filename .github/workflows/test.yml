@@ -1,11 +1,13 @@
 name: wow
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - fix/trigger-another-branch
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Run tests
-        run: echo "Hello World"
+        run: node scripts/test.js
