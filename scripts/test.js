@@ -5,6 +5,7 @@ console.log(execSync('npx @datadog/datadog-ci version').toString());
 
 const fs = require('fs');
 
+console.log(process.env.SERVICE_VERSION);
 if (fs.existsSync('/wowow')) {
   console.log('noo');
 } else {
