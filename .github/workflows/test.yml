@@ -15,9 +15,9 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
-      - name: Set version name to environment variable'
+      - name: Set version name to environmgitent variable'
         run: |
-          echo "SERVICE_VERSION=$(echo ${{ github.ref }}" >> $GITHUB_ENV
+          echo "SERVICE_VERSION=$(echo ${{ github.ref }})" >> $GITHUB_ENV
       - name: Run tests
         env:
           STEP_LEVEL_SERVICE_VERSION: ${{ github.ref }}STEP
