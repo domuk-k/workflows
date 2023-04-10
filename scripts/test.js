@@ -8,6 +8,7 @@ const fs = require('fs');
 console.log(process.env.WORKFLOW_LEVEL_SERVICE_VERSION);
 console.log(process.env.JOB_LEVEL_SERVICE_VERSION);
 console.log(process.env.STEP_LEVEL_SERVICE_VERSION);
+console.log(process.env.MY_VAR);
 if (fs.existsSync('/wowow')) {
   console.log('noo');
 } else {
