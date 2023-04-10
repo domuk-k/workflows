@@ -13,3 +13,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Run tests
         run: node scripts/test.js
+      - name: Next step
+        run: echo "This is the next step"
