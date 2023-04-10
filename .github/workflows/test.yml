@@ -32,19 +32,16 @@ jobs:
         run: |
           echo $SERVICE_VERSION
           echo $action_state
-
-  next-job:
-    needs: test
+  new-job:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
         uses: actions/checkout@v2
-      - name: Run tests
+      - name: CHECK THIS OUT
         env:
-          WORKFLOW_LEVEL_SERVICE_VERSION_REF_NAME: ${{ env.WORKFLOW_LEVEL_SERVICE_VERSION_REF_NAME }}
-          WORKFLOW_LEVEL_SERVICE_VERSION: ${{ env.WORKFLOW_LEVEL_SERVICE_VERSION }}
-        run: node scripts/test.js
-      - name: Check out
+          SERVICE_VERION: ${{ github.ref_name }}
         run: |
+          SERVICE_VERSION=$(echo $SERVICE_VERION | sed 's/app-//')
           echo $SERVICE_VERSION
-          echo $action_state
+          SERVICE_VERSION=$(echo app-v1.3.3 | sed 's/app-//')
+          echo $SERVICE_VERSION
