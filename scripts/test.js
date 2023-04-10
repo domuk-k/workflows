@@ -9,6 +9,7 @@ console.log(process.env.WORKFLOW_LEVEL_SERVICE_VERSION);
 console.log(process.env.JOB_LEVEL_SERVICE_VERSION);
 console.log(process.env.STEP_LEVEL_SERVICE_VERSION);
 console.log(process.env.MY_VAR);
+console.log(process.env.WORKFLOW_LEVEL_SERVICE_VERSION_REF_NAME);
 console.log(process.env.action_state);
 if (fs.existsSync('/wowow')) {
   console.log('noo');

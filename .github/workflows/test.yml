@@ -1,11 +1,14 @@
 name: wow
 env:
-  WORKFLOW_LEVEL_SERVICE_VERSION: ${{ github.ref }}WORKFLOW
+  WORKFLOW_LEVEL_SERVICE_VERSION_REF_NAME: ${{ github.ref_name }}
+  WORKFLOW_LEVEL_SERVICE_VERSION: ${{ github.ref }}
 
 on:
   push:
     branches:
-      - fix/trigger-another-branch
+      - '**'
+    tags:
+      - '**'
 
 jobs:
   test:
