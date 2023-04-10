@@ -39,7 +39,7 @@ jobs:
         uses: actions/checkout@v2
       - name: CHECK THIS OUT
         env:
-          SERVICE_VERION: ${{ github.ref_name }}
+          SERVICE_VERION: ${{ (startsWith(github.ref, 'refs/tags/app-v') && github.ref_name) }}
         run: |
           SERVICE_VERSION=$(echo $SERVICE_VERION | sed 's/app-//')
           echo $SERVICE_VERSION
