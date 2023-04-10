@@ -37,3 +37,5 @@ jobs:
         env:
           MY_VAR: ${{ env.MY_GLOBAL_VARIABLE }}
         run: node scripts/test.js
+      - name: Lis global variable
+        run: env
