@@ -10,6 +10,7 @@ console.log(process.env.JOB_LEVEL_SERVICE_VERSION);
 console.log(process.env.STEP_LEVEL_SERVICE_VERSION);
 console.log(process.env.MY_VAR);
 console.log(process.env.WORKFLOW_LEVEL_SERVICE_VERSION_REF_NAME);
+console.log('SERVICE_VERSION_2', process.env.SERVICE_VERSION_2);
 console.log('SERVICE_VERSION', process.env.SERVICE_VERSION);
 console.log(
   'WORKFLOW_LEVEL_SERVICE_VERSION_REF_NAME',
