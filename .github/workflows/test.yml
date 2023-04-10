@@ -24,6 +24,8 @@ jobs:
         run: node scripts/test.js
       - name: Next step
         run: echo "This is the next step"
+      - name: Lis global variable
+        run: env
 
   next-job:
     needs: test
