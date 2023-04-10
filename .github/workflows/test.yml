@@ -25,8 +25,10 @@ jobs:
         run: node scripts/test.js
       - name: Next step
         run: echo "This is the next step"
-      - name: Lis global variable
-        run: env
+      - name: Check out
+        run: |
+          echo $SERVICE_VERSION
+          echo $action_state
 
   next-job:
     needs: test
@@ -38,5 +40,7 @@ jobs:
         env:
           MY_VAR: ${{ env.SERVICE_VERSION }}
         run: node scripts/test.js
-      - name: Lis global variable
-        run: env
+      - name: Check out
+        run: |
+          echo $SERVICE_VERSION
+          echo $action_state
