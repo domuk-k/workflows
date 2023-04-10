@@ -1,0 +1,50 @@
+name: wow
+env:
+  WORKFLOW_LEVEL_SERVICE_VERSION_REF_NAME: ${{ github.ref_name }}
+  WORKFLOW_LEVEL_SERVICE_VERSION: ${{ github.ref }}
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
+
+jobs:
+  test:
+    env:
+      JOB_LEVEL_SERVICE_VERSION: ${{ github.ref }}JOB
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Set version name to environmgitent variable'
+        run: |
+          echo "SERVICE_VERSION=${{ github.ref }}" >> $GITHUB_ENV 
+          echo "action_state=yellow" >> $GITHUB_ENV
+      - name: Run tests
+        env:
+          STEP_LEVEL_SERVICE_VERSION: ${{ github.ref }}STEP
+        run: node scripts/test.js
+      - name: Next step
+        run: echo "This is the next step"
+      - name: Check out
+        run: |
+          echo $SERVICE_VERSION
+          echo $action_state
+
+  next-job:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Run tests
+        env:
+          WORKFLOW_LEVEL_SERVICE_VERSION_REF_NAME: ${{ env.WORKFLOW_LEVEL_SERVICE_VERSION_REF_NAME }}
+          WORKFLOW_LEVEL_SERVICE_VERSION: ${{ env.WORKFLOW_LEVEL_SERVICE_VERSION }}
+        run: node scripts/test.js
+      - name: Check out
+        run: |
+          echo $SERVICE_VERSION
+          echo $action_state
